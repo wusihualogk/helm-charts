@@ -8,7 +8,7 @@ fastdfs:
   storage:
     - name: group1
       replica: 2
-      size: 20Gi
+      size: 10Gi
     - name: group2
       replica: 2
       size: 2Gi
@@ -18,43 +18,43 @@ fastdfs:
 
 service:
   type: ClusterIP
-  annotations: {}
+  annotations: { }
 
 image:
   repository: ygqygq2/fastdfs-nginx
-  tag: latest
+  tag: V6.06
   pullPolicy: IfNotPresent
 
 ## Headless service.
 ##
 headless:
-  annotations: {}
+  annotations: { }
 
 trackerPorts:
   tracker:
     containerPort: 22122  # Port number for fastdfs container tracker port.
-    protocol: TCP  # Protocol 
+    protocol: TCP  # Protocol
   trackernginx:
     containerPort: 80  # Port number for fastdfs container nginx port.
-    protocol: TCP  # Protocol 
+    protocol: TCP  # Protocol
 
 storagePorts:
   storage:
     containerPort: 23000  # Port number for fastdfs container storage port.
-    protocol: TCP  # Protocol 
+    protocol: TCP  # Protocol
   storagenginx:
     containerPort: 8080  # Port number for fastdfs container nginx port.
-    protocol: TCP  # Protocol 
+    protocol: TCP  # Protocol
 
 ingress:
   enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  annotations: { }
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
     - fdfs.test.cn
-  tls: []
+  tls: [ ]
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
@@ -62,7 +62,7 @@ ingress:
 ## Configure resource requests and limits
 ### ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ###
-resources: 
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -72,24 +72,24 @@ resources:
   #  memory: 128Mi
   tracker:
     requests:
-     cpu: 100m
-     memory: 128Mi
+      cpu: 100m
+      memory: 128Mi
   storage:
     requests:
-     cpu: 100m
-     memory: 128Mi
+      cpu: 100m
+      memory: 128Mi
 
 ## Node labels and tolerations for pod assignment
 ### ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
 ### ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#taints-and-tolerations-beta-feature
-nodeSelector: {}
-tolerations: []
-affinity: {}
+nodeSelector: { }
+tolerations: [ ]
+affinity: { }
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
 ##
-persistentVolume: 
+persistentVolume:
   enabled: true
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -97,6 +97,6 @@ persistentVolume:
   ##   set, choosing the default provisioner.  (gp2 on AWS, azure-disk on
   ##   Azure, standard on GKE, AWS & OpenStack)
   ##
-  storageClass: "-"
+  storageClass: null
   accessMode: ReadWriteOnce
-  annotations: {}
+  annotations: { }

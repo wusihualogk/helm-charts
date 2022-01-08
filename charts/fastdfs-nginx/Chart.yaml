@@ -1,11 +1,11 @@
 apiVersion: v1
-appVersion: V5.11
 description: FastDFS-Nginx chart for Kubernetes
-home: https://github.com/happyfish100/fastdfs
+home: https://github.com/wusihualogk
 keywords:
-- fastdfs
+  - fastdfs
 maintainers:
-- email: 29ygq@sina.com
-  name: Chinge Yang
+  - email: 707639014@qq.com
+    name: wusihua
 name: fastdfs-nginx
-version: 1.0.2
+version: 2.0.0
+appVersion: V6.06

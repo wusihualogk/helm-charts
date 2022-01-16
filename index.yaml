@@ -72,6 +72,32 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/fastdfs-nginx-1.0.2/fastdfs-nginx-1.0.2.tgz
     version: 1.0.2
+  mysql:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 8.0.27
+    created: "2022-01-16T07:05:01.628169224Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: Chart to create a Highly available MySQL cluster
+    digest: 9c69e5fe6ca6bf2f851698cdfbb14a952aac28598b8e590e48279bc88451f48f
+    home: https://github.com/wusihualogk
+    keywords:
+    - mysql
+    - database
+    - sql
+    - cluster
+    - high availability
+    maintainers:
+    - email: 707639014@qq.com
+      name: saber
+    name: mysql
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/mysql-8.8.21/mysql-8.8.21.tgz
+    version: 8.8.21
   test:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -83,4 +109,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-16T06:42:42.132739522Z"
+generated: "2022-01-16T07:05:01.628194125Z"

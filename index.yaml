@@ -98,6 +98,31 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/mysql-8.8.21/mysql-8.8.21.tgz
     version: 8.8.21
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 8.0.27
+    created: "2022-01-16T07:55:29.66086934Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: Chart to create a Highly available MySQL cluster
+    digest: 8d9aaff7a57748d1dd2de782236b8a4444659e74de1a162e6fcf71dbc73de137
+    home: https://github.com/wusihualogk
+    keywords:
+    - mysql
+    - database
+    - sql
+    - cluster
+    - high availability
+    maintainers:
+    - email: 707639014@qq.com
+      name: saber
+    name: mysql
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/mysql-1.0.1/mysql-1.0.1.tgz
+    version: 1.0.1
   test:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -109,4 +134,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-16T07:05:01.628194125Z"
+generated: "2022-01-16T07:55:29.66088854Z"

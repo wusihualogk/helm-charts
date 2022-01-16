@@ -410,14 +410,15 @@ primary:
   service:
     ## @param primary.service.type MySQL Primary K8s service type
     ##
-    type: ClusterIP
+    #type: ClusterIP
+    type: NodePort
     ## @param primary.service.port MySQL Primary K8s service port
     ##
     port: 3306
     ## @param primary.service.nodePort MySQL Primary K8s service node port
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
     ##
-    nodePort: ""
+    nodePort: "30010"
     ## @param primary.service.clusterIP MySQL Primary K8s service clusterIP IP
     ## e.g:
     ## clusterIP: None

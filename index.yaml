@@ -3,6 +3,21 @@ entries:
   fastdfs-nginx:
   - apiVersion: v1
     appVersion: V6.06
+    created: "2022-01-16T03:53:30.152503104Z"
+    description: FastDFS-Nginx chart for Kubernetes
+    digest: 9b84b496ab20ff8cbc1d78907084e4d8bb3924bcdac21035d5d2662d5f4def53
+    home: https://github.com/wusihualogk
+    keywords:
+    - fastdfs
+    maintainers:
+    - email: 707639014@qq.com
+      name: wusihua
+    name: fastdfs-nginx
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/fastdfs-nginx-2.0.1/fastdfs-nginx-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v1
+    appVersion: V6.06
     created: "2022-01-08T03:17:24.741206102Z"
     description: FastDFS-Nginx chart for Kubernetes
     digest: 1b71223844309894d7b71f97896d6606f788c472c9333f4ff35fc72662da022e
@@ -42,4 +57,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-08T03:17:24.741215002Z"
+generated: "2022-01-16T03:53:30.152517704Z"

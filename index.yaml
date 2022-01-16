@@ -123,6 +123,26 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/mysql-1.0.1/mysql-1.0.1.tgz
     version: 1.0.1
+  mysql8:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 8.0.27
+    created: "2022-01-16T10:15:37.97360816Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: mysql8
+    digest: 3b3f3338917faabbdb6400b91c425733089138d664e45e3be4cb11a734972168
+    home: https://github.com/wusihualogk
+    maintainers:
+    - email: 707639014@qq.com
+      name: saber
+    name: mysql8
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/mysql8-1.0.0/mysql8-1.0.0.tgz
+    version: 1.0.0
   test:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -134,4 +154,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-16T07:55:29.66088854Z"
+generated: "2022-01-16T10:15:37.973637161Z"

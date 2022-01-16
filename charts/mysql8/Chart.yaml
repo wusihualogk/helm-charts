@@ -1,0 +1,16 @@
+annotations:
+  category: Database
+apiVersion: v2
+appVersion: 8.0.27
+description: mysql8
+home: https://github.com/wusihualogk
+maintainers:
+- email: 707639014@qq.com
+  name: saber
+name: mysql8
+version: 1.0.0
+dependencies:
+- name: common
+  #repository: https://wusihualogk.github.io/helm-charts
+  repository: file://../common/
+  version: 1.0.0

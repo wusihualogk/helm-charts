@@ -1,3 +1,4 @@
 git config --global http.sslVerify "false"
+git config --global http.postBuffer 1048576000
 
 

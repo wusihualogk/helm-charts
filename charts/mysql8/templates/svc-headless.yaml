@@ -19,6 +19,5 @@ spec:
   ports:
     - name: mysql
       port: {{ .Values.primary.service.port }}
-      targetPort: mysql
+      targetPort: {{ .Values.primary.service.targetPort }}
   selector: {{ include "common.labels.matchLabels" . | nindent 4 }}
-    app.kubernetes.io/component: primary

@@ -1,11 +1,7 @@
 {{/* vim: set filetype=mustache: */}}
 
 {{- define "mysql.primary.fullname" -}}
-{{- if eq .Values.architecture "replication" }}
-{{- printf "%s-%s" (include "common.names.fullname" .) "primary" | trunc 63 | trimSuffix "-" -}}
-{{- else -}}
 {{- include "common.names.fullname" . -}}
-{{- end -}}
 {{- end -}}
 
 {{- define "mysql.secondary.fullname" -}}
@@ -37,7 +33,7 @@ Return the proper image name (for the init container volume-permissions image)
 Return the proper Docker Image Registry Secret Names
 */}}
 {{- define "mysql.imagePullSecrets" -}}
-{{ include "common.images.pullSecrets" (dict "images" (list .Values.image .Values.metrics.image .Values.volumePermissions.image) "global" .Values.global) }}
+{{ include "common.images.pullSecrets" (dict "images" (list .Values.image ) "global" .Values.global) }}
 {{- end -}}
 
 {{ template "mysql.initdbScriptsCM" . }}

@@ -17,7 +17,6 @@ spec:
   replicas: 1
   selector:
     matchLabels: {{ include "common.labels.matchLabels" . | nindent 6 }}
-      app.kubernetes.io/component: primary
   serviceName: {{ include "mysql.primary.fullname" . }}
   template:
     metadata:

@@ -2,3 +2,7 @@ git config --global http.sslVerify "false"
 git config --global http.postBuffer 1048576000
 
 
+
+docker exec -it 55c3e6df75c4 /bin/sh 
+
+RUN yum -y install tree

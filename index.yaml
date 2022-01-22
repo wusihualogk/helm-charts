@@ -128,6 +128,25 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 8.0.27
+    created: "2022-01-22T19:52:26.831680412Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: mysql8
+    digest: e38bb292bf5d30511231567857604804b29097b8b79eef6d908543d2b922de82
+    home: https://github.com/wusihualogk
+    maintainers:
+    - email: 707639014@qq.com
+      name: saber
+    name: mysql8
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/mysql8-1.0.2/mysql8-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 8.0.27
     created: "2022-01-22T19:28:03.052865973Z"
     dependencies:
     - name: common
@@ -165,6 +184,20 @@ entries:
   registry:
   - apiVersion: v2
     appVersion: 2.7.1
+    created: "2022-01-22T19:52:26.986058292Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: 1d8a26ebf5c1df5559e7043ba64f302dc9f09d3152227e74909f0a10ead52066
+    name: registry
+    type: application
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/registry-1.0.1/registry-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 2.7.1
     created: "2022-01-22T19:28:03.215967807Z"
     dependencies:
     - name: common
@@ -188,4 +221,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-22T19:28:03.215983107Z"
+generated: "2022-01-22T19:52:26.986083192Z"

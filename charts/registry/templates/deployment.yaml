@@ -75,7 +75,6 @@ spec:
           resources: {{ toYaml .Values.registry.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
-          volumeMounts:
             - name: host-time
               readOnly: true
               mountPath: /etc/localtime

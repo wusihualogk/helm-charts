@@ -29,6 +29,21 @@ entries:
   fastdfs-nginx:
   - apiVersion: v1
     appVersion: V6.06
+    created: "2022-01-23T09:51:56.248494295Z"
+    description: FastDFS-Nginx chart for Kubernetes
+    digest: 4a686c20557b2538a9f623a6a81d0f71bb081ba196494e7796db57ea251c7be8
+    home: https://github.com/wusihualogk
+    keywords:
+    - fastdfs
+    maintainers:
+    - email: 707639014@qq.com
+      name: wusihua
+    name: fastdfs-nginx
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/fastdfs-nginx-2.0.2/fastdfs-nginx-2.0.2.tgz
+    version: 2.0.2
+  - apiVersion: v1
+    appVersion: V6.06
     created: "2022-01-16T03:53:30.152503104Z"
     description: FastDFS-Nginx chart for Kubernetes
     digest: 9b84b496ab20ff8cbc1d78907084e4d8bb3924bcdac21035d5d2662d5f4def53
@@ -128,6 +143,25 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 8.0.27
+    created: "2022-01-23T09:51:56.396000434Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: mysql8
+    digest: 5d0d599e59b084490cbb11e0f4011e352c942663f44f1dd57fe8598491a12fd6
+    home: https://github.com/wusihualogk
+    maintainers:
+    - email: 707639014@qq.com
+      name: saber
+    name: mysql8
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/mysql8-1.0.3/mysql8-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 8.0.27
     created: "2022-01-22T19:52:26.831680412Z"
     dependencies:
     - name: common
@@ -182,6 +216,20 @@ entries:
     - https://github.com/wusihualogk/helm-charts/releases/download/mysql8-1.0.0/mysql8-1.0.0.tgz
     version: 1.0.0
   registry:
+  - apiVersion: v2
+    appVersion: 2.7.1
+    created: "2022-01-23T09:51:56.541588235Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: d6a06bd0399d367e8c169520891ea5367cea65d033caf4397f2368f3e80e0891
+    name: registry
+    type: application
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/registry-1.0.4/registry-1.0.4.tgz
+    version: 1.0.4
   - apiVersion: v2
     appVersion: 2.7.1
     created: "2022-01-23T05:15:46.647948914Z"
@@ -249,4 +297,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-23T05:15:46.647986715Z"
+generated: "2022-01-23T09:51:56.541682637Z"

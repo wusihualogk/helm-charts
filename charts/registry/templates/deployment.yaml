@@ -1,5 +1,5 @@
-kind: Deployment
-apiVersion: apps/v1
+apiVersion: {{ include "common.capabilities.statefulset.apiVersion" . }}
+kind: StatefulSet
 metadata:
   name: {{ include "registry.fullname" . }}
   namespace: {{ .Release.Namespace }}
@@ -21,7 +21,7 @@ spec:
   replicas: 1
   selector:
     matchLabels: {{ include "common.labels.matchLabels" . | nindent 6 }}
-  # serviceName: {{ include "registry.fullname" . }}
+  serviceName: {{ include "registry.fullname" . }}
   template:
     metadata:
       annotations:
@@ -75,9 +75,15 @@ spec:
           resources: {{ toYaml .Values.registry.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
+          volumeMounts:
             - name: host-time
               readOnly: true
               mountPath: /etc/localtime
+            - name: data
+              mountPath: /var/lib/registry
+            {{- if .Values.registry.extraVolumeMounts }}
+            {{- include "common.tplvalues.render" (dict "value" .Values.registry.extraVolumeMounts "context" $) | nindent 12 }}
+            {{- end }}
       volumes:
         - name: host-time
           hostPath:
@@ -86,3 +92,32 @@ spec:
         {{- if .Values.registry.extraVolumes }}
         {{- include "common.tplvalues.render" (dict "value" .Values.registry.extraVolumes "context" $) | nindent 8 }}
         {{- end }}
+  {{- if and .Values.registry.persistence.enabled .Values.registry.persistence.existingClaim }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ tpl .Values.registry.persistence.existingClaim . }}
+  {{- else if not .Values.registry.persistence.enabled }}
+        - name: data
+          emptyDir: {}
+  {{- else if and .Values.registry.persistence.enabled (not .Values.registry.persistence.existingClaim) }}
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+        labels: {{ include "common.labels.matchLabels" . | nindent 10 }}
+      {{- if .Values.registry.persistence.annotations }}
+        annotations:
+          {{- toYaml .Values.registry.persistence.annotations | nindent 10 }}
+      {{- end }}
+      spec:
+        accessModes:
+          {{- range .Values.registry.persistence.accessModes }}
+          - {{ . | quote }}
+          {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.registry.persistence.size | quote }}
+        {{ include "common.storage.class" (dict "persistence" .Values.registry.persistence "global" .Values.global) }}
+        {{- if .Values.registry.persistence.selector }}
+        selector: {{- include "common.tplvalues.render" (dict "value" .Values.registry.persistence.selector "context" $) | nindent 10 }}
+        {{- end -}}
+  {{- end }}

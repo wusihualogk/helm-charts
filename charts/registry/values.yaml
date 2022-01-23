@@ -43,7 +43,8 @@ service:
 ingress:
   enabled: true
   className: ""
-  annotations: {}
+  annotations: 
+    nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -84,6 +85,39 @@ registry:
   ## @param registry.extraVolumes [array] Optionally specify extra list of additional volumes to the registry pod(s)
   ##
   extraVolumes: []
+  ## @param registry.extraVolumeMounts [array] Optionally specify extra list of additional volumeMounts for the registry container(s)
+  ##
+  extraVolumeMounts: []
+  persistence:
+    enabled: true
+    ## @param registry.persistence.existingClaim Name of an existing `PersistentVolumeClaim` for registry
+    ## NOTE: When it's set the rest of persistence parameters are ignored
+    ##
+    existingClaim: ""
+    ## @param registry.persistence.storageClass registry persistent volume storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    storageClass: ""
+    ## @param registry.persistence.annotations [object] registry persistent volume claim annotations
+    ##
+    annotations: {}
+    ## @param registry.persistence.accessModes registry persistent volume access Modes
+    ##
+    accessModes:
+      - ReadWriteOnce
+    ## @param registry.persistence.size registry persistent volume size
+    ##
+    size: 20Gi
+    ## @param registry.persistence.selector [object] Selector to match an existing Persistent Volume
+    ## selector:
+    ##   matchLabels:
+    ##     app: my-app
+    ##
+    selector: {}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

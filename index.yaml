@@ -184,6 +184,20 @@ entries:
   registry:
   - apiVersion: v2
     appVersion: 2.7.1
+    created: "2022-01-23T04:50:34.590776297Z"
+    dependencies:
+    - name: common
+      repository: file://../common/
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: b68cf587102b4c79a8c927973b35db4c6c06d4f8a81e32510af39847b84f84a5
+    name: registry
+    type: application
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/registry-1.0.2/registry-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 2.7.1
     created: "2022-01-22T19:52:26.986058292Z"
     dependencies:
     - name: common
@@ -221,4 +235,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-22T19:52:26.986083192Z"
+generated: "2022-01-23T04:50:34.590839Z"

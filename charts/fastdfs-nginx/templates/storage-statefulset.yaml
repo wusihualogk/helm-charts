@@ -47,6 +47,8 @@ spec:
           volumeMounts:
           - name: data-storage
             mountPath: /var/fdfs
+          - name: conf-storage
+            mountPath: /etc/fdfs
           readinessProbe:
             exec:
               command:
@@ -73,6 +75,19 @@ spec:
             failureThreshold: 3
       volumes:
       - name: data-storage
+    {{- with $.Values.nodeSelector }}
+      nodeSelector:
+      {{ toYaml $root | indent 8 }}
+    {{- end }}
+    {{- with $.Values.affinity }}
+      affinity:
+      {{ toYaml $root | indent 8 }}
+    {{- end }}
+    {{- with $.Values.tolerations }}
+      tolerations:
+      {{ toYaml $root | indent 8 }}
+    {{- end }}
+      - name: conf-storage
     {{- with $.Values.nodeSelector }}
       nodeSelector:
       {{ toYaml $root | indent 8 }}
@@ -113,6 +128,34 @@ spec:
       {{- end }}
   {{- else }}
       - name: data-storage
+        emptyDir: {}
+  {{- end }}
+  - metadata:
+      name: conf-storage
+      labels:
+        app: {{ template "fastdfs-nginx.name" $root }}
+        chart: {{ template "fastdfs-nginx.chart" $root }}
+        release: {{ $.Release.Name }}
+        heritage: {{ $.Release.Service }}
+    spec:
+      accessModes:
+        - {{ $.Values.persistentVolume.accessMode | quote }}
+      annotations:
+      {{- range $key, $value := $.Values.persistentVolume.annotations }}
+        {{ $key }}: {{ $value }}
+      {{- end }}
+      resources:
+        requests:
+          storage: 1G
+      {{- if $.Values.persistentVolume.storageClass }}
+        {{- if (eq "-" $.Values.persistentVolume.storageClass) }}
+      storageClassName: ""
+        {{- else }}
+      storageClassName: "{{ $.Values.persistentVolume.storageClass }}"
+        {{- end }}
+      {{- end }}
+  {{- else }}
+      - name: conf-storage
         emptyDir: {}
   {{- end }}
 ---

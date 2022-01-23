@@ -9,9 +9,6 @@ fastdfs:
     - name: group1
       replica: 2
       size: 10Gi
-    - name: group2
-      replica: 2
-      size: 2Gi
   tracker:
     replica: 2
     size: 5Gi
@@ -89,6 +86,7 @@ affinity: { }
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
 ##
+
 persistentVolume:
   enabled: true
   ## If defined, storageClassName: <storageClass>

@@ -48,7 +48,7 @@ spec:
           image: "{{ .Values.nacos.image.repository }}:{{ .Values.nacos.image.tag }}"
           imagePullPolicy: {{ .Values.nacos.image.pullPolicy }}
           startupProbe:
-            initialDelaySeconds: 180
+            initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 10
             httpGet:
@@ -82,6 +82,8 @@ spec:
               value: {{ .Values.nacos.serverPort | quote }}
             - name: PREFER_HOST_MODE
               value: {{ .Values.nacos.preferhostmode | quote }}
+            - name: PREFER_HOST_MODE
+              value: {{ .Values.nacos.preferhostmode | quote }}
             {{- if eq .Values.global.mode "standalone" }}
             - name: MODE
               value: "standalone"
@@ -97,6 +99,12 @@ spec:
                   apiVersion: v1
                   fieldPath: metadata.namespace
             {{- end }}
+            - name: JVM_XMS
+              value: {{ .Values.nacos.jvmXms | quote }}
+            - name: JVM_XMX
+              value: {{ .Values.nacos.jvmXmx | quote }}
+            - name: JVM_XMN
+              value: {{ .Values.nacos.jvmXmn | quote }}
             {{- if eq .Values.nacos.storage.type "mysql" }}
             - name: SPRING_DATASOURCE_PLATFORM
               value: "mysql"

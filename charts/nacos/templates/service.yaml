@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nacos-hs
+  name: {{ include "common.names.fullname" . }}-headless
   annotations:
     service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
 spec:
@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nacos-cs
+  name: {{ include "common.names.fullname" . }}-headless
   labels:
   {{- toYaml .Values.service.labels | nindent 4 }}
   annotations:

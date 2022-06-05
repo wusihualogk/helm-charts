@@ -6,9 +6,9 @@ metadata:
   {{- toYaml .Values.annotations | indent 4 }}
 spec:
   {{- if eq .Values.global.mode "cluster" }}
-  serviceName: nacos-hs
+  serviceName: {{ include "common.names.fullname" . }}
   {{- else }}
-  serviceName: nacos-cs
+  serviceName: {{ include "common.names.fullname" . }}
   {{- end }}
   replicas: {{ .Values.nacos.replicaCount }}
   selector:

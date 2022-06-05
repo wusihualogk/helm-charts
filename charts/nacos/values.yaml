@@ -50,6 +50,9 @@ service:
   type: NodePort
   port: 8848
   nodePort: 30060
+  nodePort2: 30061
+  nodePort3: 30062
+  nodePort4: 30064
 
 
 ingress:

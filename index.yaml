@@ -215,6 +215,19 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/mysql8-1.0.0/mysql8-1.0.0.tgz
     version: 1.0.0
+  nacos:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-06-05T07:46:10.839730138Z"
+    description: A Helm chart for Kubernetes
+    digest: c29be50c1b827bc5cf7760e1e582615f98a57c3aecef85e463c44b96daca9942
+    maintainers:
+    - name: arrowfeng
+    - name: paderlol
+    name: nacos
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/nacos-0.1.5/nacos-0.1.5.tgz
+    version: 0.1.5
   registry:
   - apiVersion: v2
     appVersion: 2.7.1
@@ -297,4 +310,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-23T09:51:56.541682637Z"
+generated: "2022-06-05T07:46:10.839757138Z"

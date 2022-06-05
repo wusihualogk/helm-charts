@@ -218,6 +218,19 @@ entries:
   nacos:
   - apiVersion: v1
     appVersion: v2.1.0
+    created: "2022-06-05T10:23:01.614796498Z"
+    description: A Helm chart for Kubernetes
+    digest: 43f4afa7f4cbd0c023b0c1430b8b922f02ec4a3cece371cd5a59b2ec7975d6aa
+    maintainers:
+    - name: arrowfeng
+    - name: paderlol
+    - name: saber
+    name: nacos
+    urls:
+    - https://github.com/wusihualogk/helm-charts/releases/download/nacos-0.1.11/nacos-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v1
+    appVersion: v2.1.0
     created: "2022-06-05T09:38:17.597051831Z"
     description: A Helm chart for Kubernetes
     digest: 1c74f428b813618df588958ec09c600f3433c2b7ba2ece3c7ecb75a2c78455af
@@ -374,4 +387,4 @@ entries:
     urls:
     - https://github.com/wusihualogk/helm-charts/releases/download/test-0.1.0/test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-05T09:38:17.597116031Z"
+generated: "2022-06-05T10:23:01.614856299Z"

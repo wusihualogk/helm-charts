@@ -36,11 +36,5 @@ spec:
                 port:
                   number: {{ $http }}
           {{- end }}
-        {{- range .paths }}
-          - path: {{ . }}
-            backend:
-              serviceName: nacos-cs
-              servicePort: http
-        {{- end }}
   {{- end }}
 {{- end }}
